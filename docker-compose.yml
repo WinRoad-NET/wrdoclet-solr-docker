@@ -1,0 +1,11 @@
+version: '3'
+services:
+  solr:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./solrdata:/usr/share/wrdocletsolrdata
+
+volumes:
+  solrdata:

@@ -1,0 +1,1 @@
+# wrdoclet-solr-docker

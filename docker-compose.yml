@@ -1,11 +1,20 @@
-version: '3'
+version: '3.3'
+
 services:
   solr:
-    build: .
+    build: 
+      context: .
+      args:
+        SOLR_URL: http://47.98.229.120:8080
     ports:
       - "8080:8080"
+    restart: always
     volumes:
       - ./solrdata:/usr/share/wrdocletsolrdata
+      - ./docdata:/usr/share/wrdocletdocdata
+      - ./solrPublish.py:/usr/local/solrPublish.py
+    container_name: wrdoclet
 
 volumes:
   solrdata:
+  docdata:

@@ -1,20 +1,20 @@
 version: '3.3'
 
 services:
-  solr:
+  wrdoclet:
     build: 
       context: .
-      args:
-        SOLR_URL: http://wrdocletdemo.winroad.net
+    image: adamslee/wrdoclet
     ports:
       - "8088:8080"
     restart: always
     volumes:
       - ./solrdata:/usr/share/wrdocletsolrdata
       - ./docdata:/usr/share/wrdocletdocdata
+      - ./wrdoclethostsite:/usr/local/tomcat/webapps/wrdoclethostsite
       - ./solrPublish.py:/usr/local/solrPublish.py
-    container_name: wrdoclet
 
 volumes:
   solrdata:
   docdata:
+  wrdoclethostsite:
